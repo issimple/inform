@@ -1,0 +1,239 @@
+﻿
+
+ 'SUBITEM HELP PIC HIDE
+    Private Sub UpdateSubslideButtonVisibility(ByRef i As Integer)
+
+        'Dim content_level_url(4) As String
+        'Dim file_ext As String = ".jpg"
+        'If File.Exists(base_url + CStr(cur_img(1)) + "sub.png") Then file_ext = ".png"
+        'content_level_url(1) = base_url + CStr(cur_img(1)) + "sub" + file_ext
+        'content_level_url(2) = base_url + CStr(cur_img(1)) + "\" + CStr(cur_img(2)) + "sub" + file_ext
+        'content_level_url(3) = base_url + CStr(cur_img(1)) + "\" + CStr(cur_img(2)) + "\" + CStr(cur_img(3)) + "sub" + file_ext
+
+        'If subslide_button_visible Then
+        '    Dim btn_anim As New DoubleAnimation(0, SubslideButton.ActualHeight * 2, TimeSpan.FromSeconds(0.5)) _
+        '        With {.BeginTime = TimeSpan.FromSeconds(0)}
+        '    btn_transf.BeginAnimation(TranslateTransform.YProperty, btn_anim)
+        '    subslide_button_visible = False
+        'End If
+
+        'If File.Exists(content_level_url(level)) Then
+        '    subslide_button_visible = True
+        '    Dim btn_anim As New DoubleAnimation(SubslideButton.ActualHeight * 2, 0, TimeSpan.FromSeconds(0.5)) _
+        '        With {.BeginTime = TimeSpan.FromSeconds(0.5)}
+        '    btn_transf.BeginAnimation(TranslateTransform.YProperty, btn_anim)
+
+        '    'CHANGE BTN PIC
+        '    If File.Exists(data_root + gui_dir + "help_dn.png") Then
+        '        SubslideButton.Source = New BitmapImage(New Uri(data_root + gui_dir + "help_dn.png"))
+        '    End If
+        'End If
+
+        '3x SUBS  - - - OLD
+        'have_subs = False
+        'StPanSubs.Visibility = Visibility.Hidden
+        'subs1.Width = 0
+        'subs2.Width = 0
+        'subs3.Width = 0
+        'Dim content_level_url_subs(4, 3) As String 'LEVEL / SUB INDEX
+        'Dim content_level_url_subs_btn(4, 3) As String
+        'Dim content_level_url_subs_btn_mask(4, 3) As String
+        'subs_count = 0
+        'For ii = 1 To 3
+        '    content_level_url_subs(1, ii) = base_url + CStr(cur_img(1)) + "sub" + CStr(ii) + ".jpg"
+        '    content_level_url_subs(2, ii) = base_url + CStr(cur_img(1)) + "\" + CStr(cur_img(2)) + "sub" + CStr(ii) + ".jpg"
+        '    content_level_url_subs(3, ii) = base_url + CStr(cur_img(1)) + "\" + CStr(cur_img(2)) + "\" + CStr(cur_img(3)) + "sub" + CStr(ii) + ".jpg"
+
+        '    content_level_url_subs_btn(1, ii) = base_url + "sub" + CStr(ii) + "btn.jpg"
+        '    content_level_url_subs_btn(2, ii) = base_url + CStr(cur_img(1)) + "\" + "sub" + CStr(ii) + "btn.jpg"
+        '    content_level_url_subs_btn(3, ii) = base_url + CStr(cur_img(1)) + "\" + CStr(cur_img(2)) + "\" + "sub" + CStr(ii) + "btn.jpg"
+
+        '    content_level_url_subs_btn_mask(1, ii) = base_url + "sub" + CStr(ii) + "btn.png"
+        '    content_level_url_subs_btn_mask(2, ii) = base_url + CStr(cur_img(1)) + "\" + "sub" + CStr(ii) + "btn.png"
+        '    content_level_url_subs_btn_mask(3, ii) = base_url + CStr(cur_img(1)) + "\" + CStr(cur_img(2)) + "\" + "sub" + CStr(ii) + "btn.png"
+
+        '    If File.Exists(content_level_url_subs(level, ii)) Then
+        '        have_subs = True
+        '        subs_count += 1
+
+        '        Dim sub_img As Image = StPanSubs.FindName("subs" + CStr(ii))
+        '        If Not IsNothing(sub_img) And File.Exists(content_level_url_subs_btn(level, ii)) Then
+        '            sub_img.Width = Double.NaN
+        '            sub_img.Source = New BitmapImage(New Uri(content_level_url_subs_btn(level, ii)))
+        '            sub_img.OpacityMask = Nothing
+        '            If File.Exists(content_level_url_subs_btn_mask(level, ii)) Then
+        '                Dim mask As New ImageBrush()
+        '                mask.ImageSource = New BitmapImage(New Uri(content_level_url_subs_btn_mask(level, ii)))
+        '                mask.Stretch = Stretch.Fill
+        '                mask.Viewport = New Rect(0, 0, mask.ImageSource.Width, mask.ImageSource.Height)
+        '                mask.ViewportUnits = BrushMappingMode.Absolute
+        '                sub_img.OpacityMask = mask
+        '            End If
+        '        End If
+
+        '        StPanSubs.Visibility = Visibility.Visible
+        '        Dim transf_subs_panel = New TranslateTransform(0, StPanSubs.ActualHeight * 2)
+        '        StPanSubs.RenderTransform = transf_subs_panel
+        '        Dim anim_subs_panel As New DoubleAnimation(StPanSubs.ActualHeight, 0, TimeSpan.FromSeconds(0.5))
+        '        anim_subs_panel.BeginTime = TimeSpan.FromSeconds(0.5)
+        '        transf_subs_panel.BeginAnimation(TranslateTransform.YProperty, anim_subs_panel)
+        '    End If
+        'Next ii
+
+
+
+		  'SHOW SUBSLIDES VVV VVV VVV
+    Private Sub StPanSubs_MouseUp(ByVal sender As Object, ByVal e As RoutedEventArgs)
+
+
+		      '3x SUBS (OLD)
+        'Dim anim0 As New DoubleAnimation(dy / 2, 0, TimeSpan.FromSeconds(0.25))
+        'transf.BeginAnimation(TranslateTransform.YProperty, anim0)
+        'dx = 0
+        'dy = 0
+        'touch = False
+
+        'Dim feSource As Image
+        'If Not IsNothing(subs_obj) Then
+        '    feSource = subs_obj
+        '    subs_obj = Nothing
+        'Else
+        '    feSource = TryCast(e.Source, Image)
+        'End If
+
+        'If Not IsNothing(feSource) Then
+        '    For ii = 1 To 3
+        '        If feSource.Name = "subs" + CStr(ii) Then
+
+        '            'BACK ON SELECTED ITEM
+        '            If ii = selected_subs Then
+        '                Dim backcontent_level_url(4) As String
+        '                Dim backbase_url As String = data_root + "" + CStr(selected_itm) + "sub\"
+        '                backcontent_level_url(1) = backbase_url + CStr(cur_img(1)) + ".jpg"
+        '                backcontent_level_url(2) = backbase_url + CStr(cur_img(1)) + "\" + CStr(cur_img(2)) + ".jpg"
+        '                backcontent_level_url(3) = backbase_url + CStr(cur_img(1)) + "\" + CStr(cur_img(2)) + "\" + CStr(cur_img(3)) + ".jpg"
+
+        '                ImgSlide3.Source = ImgSlide1.Source
+        '                ImgSlide1.Source = New BitmapImage(New Uri(backcontent_level_url(level)))
+
+        '                Dim ease As New BackEase
+        '                ease.EasingMode = EasingMode.EaseOut
+        '                ease.Amplitude = 0.25
+        '                Dim transf2 = New TranslateTransform
+        '                ImgSlide3.RenderTransform = transf2
+        '                ImgSlide3.Margin = New Thickness(0, -GridSlide.ActualHeight, 0, GridSlide.ActualHeight)
+        '                Dim anim2 As New DoubleAnimation(GridSlide.ActualHeight, 0, TimeSpan.FromSeconds(1))
+        '                anim2.EasingFunction = ease
+        '                transf2.BeginAnimation(TranslateTransform.YProperty, anim2)
+
+        '                Dim transf1 = New TranslateTransform
+        '                ImgSlide1.RenderTransform = transf1
+        '                ImgSlide1.Margin = New Thickness(0)
+        '                Dim anim1 As New DoubleAnimation(GridSlide.ActualHeight, 0, TimeSpan.FromSeconds(1))
+        '                anim1.EasingFunction = ease
+        '                transf1.BeginAnimation(TranslateTransform.YProperty, anim1)
+
+        '                selected_subs = 0
+        '                UpdateSubslideButtonVisibility(selected_itm)
+        '                VideoContent(backcontent_level_url(level).Replace("jpg", "avi"), False)
+        '                subitem_snd.Play()
+        '                Exit Sub
+        '            End If
+
+        '            selected_subs = ii
+        '            UpdateSubslideButtonVisibility(selected_itm)
+        '            VideoContent("", True)
+
+        '            Dim subcontent_level_url(4) As String
+        '            Dim subbase_url As String = data_root + "" + CStr(selected_itm) + "sub\"
+        '            Dim content_level_url_subs(4, 3) As String 'LEVEL / SUB INDEX
+        '            content_level_url_subs(1, ii) = subbase_url + CStr(cur_img(1)) + "sub" + CStr(ii) + ".jpg"
+        '            content_level_url_subs(2, ii) = subbase_url + CStr(cur_img(1)) + "\" + CStr(cur_img(2)) + "sub" + CStr(ii) + ".jpg"
+        '            content_level_url_subs(3, ii) = subbase_url + CStr(cur_img(1)) + "\" + CStr(cur_img(2)) + "\" + CStr(cur_img(3)) + "sub" + CStr(ii) + ".jpg"
+
+        '            If File.Exists(content_level_url_subs(level, ii)) Then
+        '                ImgSlide2.Source = Nothing
+        '                If ImgSlide1.Margin.Equals(New Thickness(-GridSlide.ActualWidth, 0, GridSlide.ActualWidth, 0)) Then
+        '                    ImgSlide2.Margin = New Thickness(0)
+        '                End If
+        '                If ImgSlide1.Margin.Equals(New Thickness(0)) Then
+        '                    ImgSlide2.Margin = New Thickness(-GridSlide.ActualWidth, 0, GridSlide.ActualWidth, 0)
+        '                End If
+
+        '                'SUBITEM NOT SHOWN
+        '                ImgSlide3.Source = ImgSlide1.Source
+        '                ImgSlide1.Source = New BitmapImage(New Uri(content_level_url_subs(level, ii)))
+
+        '                Dim ease As New BackEase
+        '                ease.EasingMode = EasingMode.EaseOut
+        '                ease.Amplitude = 0.25
+        '                Dim transf2 = New TranslateTransform
+        '                ImgSlide3.RenderTransform = transf2
+        '                ImgSlide3.Margin = New Thickness(0, -GridSlide.ActualHeight, 0, GridSlide.ActualHeight)
+        '                Dim anim2 As New DoubleAnimation(GridSlide.ActualHeight, 0, TimeSpan.FromSeconds(1))
+        '                anim2.EasingFunction = ease
+        '                transf2.BeginAnimation(TranslateTransform.YProperty, anim2)
+
+        '                Dim transf1 = New TranslateTransform
+        '                ImgSlide1.RenderTransform = transf1
+        '                ImgSlide1.Margin = New Thickness(0)
+        '                Dim anim1 As New DoubleAnimation(GridSlide.ActualHeight, 0, TimeSpan.FromSeconds(1))
+        '                anim1.EasingFunction = ease
+        '                transf1.BeginAnimation(TranslateTransform.YProperty, anim1)
+
+        '                'CHANGE BTN PIC
+        '                Dim content_level_url_subs_btn_sel(4, 3) As String
+        '                content_level_url_subs_btn_sel(1, ii) = subbase_url + "sub" + CStr(ii) + "btn_sel.jpg"
+        '                content_level_url_subs_btn_sel(2, ii) = subbase_url + CStr(cur_img(1)) + "\" + "sub" + CStr(ii) + "btn_sel.jpg"
+        '                content_level_url_subs_btn_sel(3, ii) = subbase_url + CStr(cur_img(1)) + "\" + CStr(cur_img(2)) + "\" + "sub" + CStr(ii) + "btn_sel.jpg"
+        '                If File.Exists(content_level_url_subs_btn_sel(level, ii)) Then
+        '                    Dim sub_img As Image = StPanSubs.FindName("subs" + CStr(ii))
+        '                    If Not IsNothing(sub_img) Then
+        '                        sub_img.Source = New BitmapImage(New Uri(content_level_url_subs_btn_sel(level, ii)))
+        '                    End If
+        '                End If
+
+        '                subitem_snd.Play()
+        '                Exit Sub
+        '            End If
+
+        '        End If
+        '    Next ii
+        'End If
+
+
+
+		  Private Sub ImgSlide1_MouseMove(ByVal sender As System.Object, ByVal e As System.Windows.Input.MouseEventArgs)
+
+		  'Dim vec_len As Double = Math.Sqrt(Math.Pow(slide_x_point - e.GetPosition(Me).X, 2) + Math.Pow(slide_y_point - e.GetPosition(Me).Y, 2))
+            'Dim vec_ang As Double = Math.Abs(Math.Atan((slide_x_point - e.GetPosition(Me).X) / (slide_y_point - e.GetPosition(Me).Y)) * 180 / Math.PI)
+            
+
+
+            'ImgSlide1.Effect = Nothing
+
+            'NEXT ITEMS PREVIEW
+            'Dim content_level_url(4) As String
+            'Dim base_url As String = base_dir + "item" + CStr(selected_itm) + "sub\"
+            'If dx <= 1 Then
+            '    next_index = cur_img(level) + 1
+            '    If cur_img(level) >= img_count(level) Then next_index = 1
+            '    content_level_url(1) = base_url + CStr(next_index) + ".jpg"
+            '    content_level_url(2) = base_url + CStr(cur_img(1)) + "\" + CStr(next_index) + ".jpg"
+            '    content_level_url(3) = base_url + CStr(cur_img(1)) + "\" + CStr(cur_img(2)) + "\" + CStr(next_index) + ".jpg"
+            '    ImgSlide2.Source = New BitmapImage(New Uri(content_level_url(level)))
+            '    next_transf.X = 2 * GridSlide.ActualWidth + dx / 2
+            '    ImgSlide2.RenderTransform = next_transf
+            '    ImgSlide2.Margin = New Thickness(-GridSlide.ActualWidth, 0, GridSlide.ActualWidth, 0)
+            'End If
+            'If dx >= 1 Then
+            '    next_index = cur_img(level) - 1
+            '    If cur_img(level) <= 1 Then next_index = img_count(level)
+            '    content_level_url(1) = base_url + CStr(next_index) + ".jpg"
+            '    content_level_url(2) = base_url + CStr(cur_img(1)) + "\" + CStr(next_index) + ".jpg"
+            '    content_level_url(3) = base_url + CStr(cur_img(1)) + "\" + CStr(cur_img(2)) + "\" + CStr(next_index) + ".jpg"
+            '    ImgSlide2.Source = New BitmapImage(New Uri(content_level_url(level)))
+            '    next_transf.X = -GridSlide.ActualWidth + dx / 2
+            '    ImgSlide2.RenderTransform = next_transf
+            '    ImgSlide2.Margin = New Thickness(0)
+            'End If
